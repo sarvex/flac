@@ -95,7 +95,7 @@ target_include_directories(FLAC INTERFACE
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(FLAC PUBLIC $<$<BOOL:${HAVE_LROUND}>:m>)
 if(TARGET Ogg::ogg)
-    target_link_libraries(FLAC PUBLIC Ogg::ogg)
+    target_link_libraries(FLAC PRIVATE Ogg::ogg)
 endif()
 if(BUILD_SHARED_LIBS)
     set_target_properties(FLAC PROPERTIES
